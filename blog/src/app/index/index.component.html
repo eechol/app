@@ -1,0 +1,9 @@
+<div>
+	<input class="btn btn-default" type="button" value="signUp" (click)="signUp()" style="float:right;">
+	<input class="btn btn-default" type="button" value="signIn" (click)="signIn()" style="float:right">
+	<nav style="margin-left:200px">
+		<input class="btn btn-default" type="button" [routerLink]="['/index/user']" value="主页"/>
+		<input class="btn btn-default" type="button" [routerLink]="['/index/message']" value="发现"/>
+	</nav>
+</div>
+<router-outlet></router-outlet>

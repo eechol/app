@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.container{
+			width:600px;
+			height: 480px;
+			margin-top:200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm.value)">
+	<div class="form-group">
+		<label for="username" style="width:80px;height: 32px">username:</label>
+		<input type="text" ngModel id="username" name="username" style="width:420px;height: 32px">
+	</div>
+	<div class="form-group">
+		<label for="password" style="width:80px;height: 32px">password:</label>
+		<input type="password" ngModel id="password" name="password" style="width:420px;height: 32px">
+	</div>
+	<div class="form-group">
+		<label for="email" style="width:80px;height: 32px">email:</label>
+		<input type="email" ngModel id="email" name="email" style="width:420px;height: 32px">
+	</div>
+	<input type="submit" class="btn btn-default" name="signUp" value="signUp" style="margin-left:240px"/>
+	</form>
+</div>
+</body>
+</html>
