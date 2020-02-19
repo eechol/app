@@ -5,6 +5,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { IndexComponent } from './index/index.component';
 import { UserComponent } from './user/user.component';
 import { MessageComponent } from './message/message.component';
+import { RouteGuardService } from './route-guard.service';
 const routes: Routes = [
 	{
         path: '',
@@ -17,11 +18,13 @@ const routes: Routes = [
         children:[
             {
             	path: 'user',
-        	 	component:UserComponent
+        	 	component:UserComponent,
+                canActivate: [RouteGuardService]
         	},
             {
             	path: 'message',
-            	component: MessageComponent
+            	component: MessageComponent,
+                canActivate: [RouteGuardService]
             }
         ]
     },
@@ -37,6 +40,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [RouteGuardService]
 })
 export class AppRoutingModule { }

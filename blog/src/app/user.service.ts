@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/Http';
+import { HttpClient ,HttpHeaders  } from '@angular/common/Http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,11 +12,12 @@ export class UserService {
 
   flag:boolean
   userExist: boolean
+  authHeader: HttpHeaders = new HttpHeaders()
   constructor(private http:HttpClient) { }
 
   getAllUser():any{
   	return this.http.get(this.baseUrl+"/user/list")
-  		.subscribe(data=>this.allUser=data);
+  		.toPromise();
   }
 
   saveUser(user):any{
@@ -28,5 +29,12 @@ export class UserService {
   existUser(user):any{
   	return this.http.post(this.baseUrl+"/user/exist",{"username":user.username,"password":user.password})
   	.toPromise();
+  }
+
+  getToken(token,user):any{
+    return this.http.post(this.baseUrl +"/user/token",
+       {"username":user == undefined? null :user.username,"password":user == undefined? null :user.password},
+       {headers : new HttpHeaders({'Content-Type': 'application/json','Auth-token':token == undefined ?'':<string> token})
+       ,responseType:'text'}).toPromise();
   }
 }
