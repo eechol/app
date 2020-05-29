@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl: string ="/api/user"
-
+  baseUrl: string ="/api/modify"
   allUser: any
 
   flag:boolean
