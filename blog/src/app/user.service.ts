@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl: string ="/api"
+  baseUrl: string ="/api/test"
 
   allUser: any
 
