@@ -14,15 +14,14 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(value){
-    let string = "master string";
+    let string = "master and list string";
     let routerService = this.router;
     let user = new User();
     user.username = value.username;
     user.password = value.password;
     this.userService.getToken(undefined,user)
       .then(function success(res){
-        // from master
-        if( res != undefined && res != ""){
+        if( res != undefined && res != "" && res ){
           let storedToken = res;
           localStorage.setItem("Auth-token",storedToken);
           routerService.navigate(["/index/user"]);
