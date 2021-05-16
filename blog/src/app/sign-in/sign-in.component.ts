@@ -14,7 +14,7 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(value){
-    let string = "master string";
+    let string = "list string";
     let routerService = this.router;
     let user = new User();
     user.username = value.username;
