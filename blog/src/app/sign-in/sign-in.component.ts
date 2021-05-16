@@ -20,9 +20,8 @@ export class SignInComponent implements OnInit {
     user.password = value.password;
     this.userService.getToken(undefined,user)
       .then(function success(res){
-        // another comment
+        // from master
         if( res != undefined && res != ""){
-          // this is a comment
           let storedToken = res;
           localStorage.setItem("Auth-token",storedToken);
           routerService.navigate(["/index/user"]);
