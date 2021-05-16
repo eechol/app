@@ -21,6 +21,7 @@ export class SignInComponent implements OnInit {
     this.userService.getToken(undefined,user)
       .then(function success(res){
         if( res != undefined && res != ""){
+          // this is a comment
           let storedToken = res;
           localStorage.setItem("Auth-token",storedToken);
           routerService.navigate(["/index/user"]);
