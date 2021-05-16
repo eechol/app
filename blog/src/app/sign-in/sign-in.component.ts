@@ -20,6 +20,7 @@ export class SignInComponent implements OnInit {
     user.password = value.password;
     this.userService.getToken(undefined,user)
       .then(function success(res){
+        // another comment
         if( res != undefined && res != ""){
           let storedToken = res;
           localStorage.setItem("Auth-token",storedToken);
